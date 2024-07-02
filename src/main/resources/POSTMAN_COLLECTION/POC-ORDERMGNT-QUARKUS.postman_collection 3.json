@@ -1,0 +1,568 @@
+{
+	"info": {
+		"_postman_id": "a5be798c-1ca6-409f-b5eb-982d1830cfce",
+		"name": "POC-ORDERMGNT-QUARKUS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34918938"
+	},
+	"item": [
+		{
+			"name": "customer",
+			"item": [
+				{
+					"name": "CreateCustomer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n       \r\n        \"name\": \"John \",\r\n        \"contactInfo\": \"13 Main St.Joseph\",\r\n        \"address\": \"johnhero@example.com\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/customers",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCustomerById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/customers/1",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllCustomers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/customers",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "CreateProducts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n       \r\n        \"name\": \"Apple\",\r\n        \"description\": \"Red Apple\",\r\n        \"price\": 0.3,\r\n        \"quantityAvailable\": 10\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/products",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductsById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/products/1",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/products",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PurchaseOrder",
+			"item": [
+				{
+					"name": "CreatePurchaseOrder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customer\": {\r\n    \"customerId\": 1\r\n  },\r\n  \"orderItems\": [\r\n    {\r\n      \"quantity\": 5,\r\n      \"product\": {\r\n        \"productId\": 1\r\n        }\r\n      },\r\n{      \r\n      \"quantity\": 8,\r\n      \"product\": {\r\n        \"productId\": 2\r\n        }\r\n      }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/purchaseOrder",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"purchaseOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllPurchaseOrder",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/purchaseOrder",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"purchaseOrder"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PurchaseOrderItem",
+			"item": [
+				{
+					"name": "GetAllPurchaseOrderItem",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/purchaseOrderItem",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"purchaseOrderItem"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shipment",
+			"item": [
+				{
+					"name": "CreateShipment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"purchaseOrder\": {\r\n    \"purchaseOrderId\": 1\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/shipment",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"shipment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetShipmentById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/shipment/1",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"shipment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateShipmentForDelivery",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/shipment/forDelivery/1",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"shipment",
+								"forDelivery",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllShipment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/shipment",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"shipment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DeliveryPartner",
+			"item": [
+				{
+					"name": "CreateDeliveryPartner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n  \"name\": \"Fast Delivery Co.\",\r\n  \"contactInfo\": \"Los Angeles, USA\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/deliveryPartner",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"deliveryPartner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllDeliveryPartner",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/deliveryPartner",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"deliveryPartner"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WarehouseLocation",
+			"item": [
+				{
+					"name": "CreateWarehouseLocation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Main Warehouse\",\r\n  \"location\": \"1234 Warehouse St, City, State, ZIP\",\r\n  \"warehouseManager\": \"John Doe\"\r\n  \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/warehouseLocation",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"warehouseLocation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllWarehouseLocation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/warehouseLocation",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"warehouseLocation"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "StorageLocation",
+			"item": [
+				{
+					"name": "CreateStorageLocation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Main Warehouse\",\r\n  \"location\": \"1234 Warehouse St, City, State, ZIP\",\r\n  \"warehouseManager\": \"John Doe\",\r\n  \"storageLocations\": [\r\n    {\r\n      \"name\": \"Aisle 1\",\r\n      \"capacity\": 100,\r\n      \"occupiedSpace\": 50\r\n    },\r\n    {\r\n      \"name\": \"Aisle 2\",\r\n      \"capacity\": 150,\r\n      \"occupiedSpace\": 75\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/storageLocation",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"storageLocation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllStorageLocation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/storageLocation",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"storageLocation"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "InventoryTransaction",
+			"item": [
+				{
+					"name": "CreateInventoryTransaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productStorageLocations\": [\r\n    {\r\n      \"quantity\": 10,\r\n      \"storageLocation\": {\r\n        \"storageLocationId\": 1\r\n      },\r\n      \"product\": {\r\n        \"productId\": 1\r\n      }\r\n    },\r\n      {\r\n      \"quantity\": 3,\r\n      \"storageLocation\": {\r\n        \"storageLocationId\": 2\r\n      },\r\n      \"product\": {\r\n        \"productId\": 2\r\n      }\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/inventoryTransaction",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"inventoryTransaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllInventoryTransaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/inventoryTransaction",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"inventoryTransaction"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"const pmRequest = {\r",
+					"  url: pm.environment.get('KeyCloakHost') + '/realms/' + pm.environment.get('Realm') + '/protocol/openid-connect/token',\r",
+					"  method: 'POST',\r",
+					"  header: 'Content-Type: application/x-www-form-urlencoded',\r",
+					"  body: {\r",
+					"    mode: 'urlencoded',\r",
+					"    urlencoded:\r",
+					"        [\r",
+					"            {key: 'username', value: pm.environment.get('Username')},\r",
+					"            {key: 'password', value: pm.environment.get('Password')},\r",
+					"            {key: 'grant_type', value: \"password\"},\r",
+					"            {key: 'client_id', value: pm.environment.get('ClientId')},\r",
+					"        ]\r",
+					"  }\r",
+					"};\r",
+					"var getToken = true;\r",
+					"if (!pm.environment.get('expires_in') ||\r",
+					"    !pm.environment.get('token')) {\r",
+					"    console.log('Token or expiry date are missing')\r",
+					"} else if (pm.environment.get('expires_in') <= (new Date()).getTime()) {\r",
+					"    console.log('Token is expired')\r",
+					"} else {\r",
+					"    getToken = false;\r",
+					"    console.log('Token and expiry date are all good');\r",
+					"}\r",
+					"if (getToken === true) {\r",
+					"    pm.sendRequest(pmRequest, function (err, res) {\r",
+					"    console.log(err ? err : res.json());\r",
+					"        if (err === null) {\r",
+					"            console.log('Saving the token and expiry date')\r",
+					"            var responseJson = res.json();\r",
+					"            pm.environment.set('token', responseJson.access_token)\r",
+					"   \r",
+					"            var expiryDate = new Date();\r",
+					"            expiryDate.setSeconds(expiryDate.getSeconds() + responseJson.expires_in);\r",
+					"            pm.environment.set('expires_in', expiryDate.getTime());\r",
+					"        }\r",
+					"    });\r",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
